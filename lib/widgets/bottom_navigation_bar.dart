@@ -62,6 +62,8 @@ class _BottomNavigationBarOlympicState
           label: '',
         ),
       ],
+      currentIndex: _selectedIndex,
+      onTap: _onItemTapped,
     );
   }
 }

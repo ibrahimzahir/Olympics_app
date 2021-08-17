@@ -9,7 +9,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Olymic App',
+      debugShowCheckedModeBanner: false,
+      title: 'Tokyo 2020 Olympic Games',
       home: HomeScreen(),
     );
   }
