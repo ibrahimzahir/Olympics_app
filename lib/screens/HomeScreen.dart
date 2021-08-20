@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import '../models/carousel_model.dart';
+import '../models/athletes_model.dart';
 import '../constants/text_style.dart';
 import '../constants/color_style.dart';
-import '../models/carousel_model.dart';
 import '../widgets/bottom_navigation_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -69,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 bottom: 5,
               ),
               width: MediaQuery.of(context).size.width,
-              height: 250,
+              height: 200,
               child: Swiper(
                 onIndexChanged: (index) {
                   setState(
@@ -123,39 +124,71 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 10),
-            Column(
-              children: [
-                Stack(
-                  children: [
-                    Container(
-                      height: 250,
-                      margin: EdgeInsets.only(
-                        top: 20,
-                      ),
-                      padding: EdgeInsets.only(
-                        top: 50,
-                        right: 50,
-                      ),
-                      decoration: BoxDecoration(
-                        color: bottomRec,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(40),
-                          topRight: Radius.circular(40),
+            SizedBox(height: 20),
+            Container(
+              height: 250,
+              decoration: BoxDecoration(
+                color: bottomRec,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40),
+                  topRight: Radius.circular(40),
+                ),
+              ),
+              child: Stack(
+                children: [
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 20),
+                        child: Row(
+                          children: [
+                            Text('Winners', style: titleBlkStyle),
+                          ],
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 35.0, left: 20),
-                      child: Row(
-                        children: [
-                          Text('Winners', style: titleBlkStyle),
-                        ],
+                      SizedBox(height: 10),
+                      Container(
+                        height: 180,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: athletes.length,
+                          itemBuilder: (contex, index) {
+                            return Container(
+                              padding: EdgeInsets.all(8),
+                              margin: EdgeInsets.only(left: 16),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: whiteColor,
+                              ),
+                              height: 170,
+                              width: 140,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(12),
+                                        ),
+                                        child: Image.asset(
+                                          athletes[index].image,
+                                          height: 130,
+                                          width: 123,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             )
           ],
         ),
