@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import '../models/sports_model.dart';
 import '../models/carousel_model.dart';
 import '../models/athletes_model.dart';
 import '../constants/text_style.dart';
@@ -209,6 +210,45 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ],
                                     ),
                                   ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16.0),
+                        child: Text('Sports', style: titleBlkStyle),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    height: 200,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: sports.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          height: 200,
+                          padding: EdgeInsets.only(left: 16),
+                          child: Row(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(12),
+                                ),
+                                child: Image.asset(
+                                  sports[index].image,
+                                  height: 130,
+                                  width: 200,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ],
