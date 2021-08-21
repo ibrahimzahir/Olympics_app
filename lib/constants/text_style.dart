@@ -13,3 +13,15 @@ var titleBlkStyle = GoogleFonts.montserrat(
   color: subHeaderColor,
   fontSize: 16,
 );
+
+var txtAthName = GoogleFonts.montserrat(
+  fontWeight: FontWeight.w500,
+  color: subHeaderColor,
+  fontSize: 12,
+);
+
+var textSpName = GoogleFonts.montserrat(
+  fontWeight: FontWeight.w100,
+  color: subHeaderColor,
+  fontSize: 10,
+);

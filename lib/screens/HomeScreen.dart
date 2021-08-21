@@ -126,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(height: 20),
             Container(
-              height: 250,
+              height: 500,
               decoration: BoxDecoration(
                 color: bottomRec,
                 borderRadius: BorderRadius.only(
@@ -134,58 +134,88 @@ class _HomeScreenState extends State<HomeScreen> {
                   topRight: Radius.circular(40),
                 ),
               ),
-              child: Stack(
+              child: Column(
                 children: [
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20, top: 20),
-                        child: Row(
-                          children: [
-                            Text('Winners', style: titleBlkStyle),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Container(
-                        height: 180,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: athletes.length,
-                          itemBuilder: (contex, index) {
-                            return Container(
-                              padding: EdgeInsets.all(8),
-                              margin: EdgeInsets.only(left: 16),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                color: whiteColor,
-                              ),
-                              height: 170,
-                              width: 140,
-                              child: Column(
-                                children: [
-                                  Row(
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(12),
-                                        ),
-                                        child: Image.asset(
-                                          athletes[index].image,
-                                          height: 130,
-                                          width: 123,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ],
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, top: 20),
+                    child: Row(
+                      children: [
+                        Text('Winners', style: titleBlkStyle),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Container(
+                    height: 200,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: athletes.length,
+                      itemBuilder: (contex, index) {
+                        return Container(
+                          padding: EdgeInsets.all(8),
+                          margin: EdgeInsets.only(left: 16),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: whiteColor,
+                          ),
+                          height: 190,
+                          width: 140,
+                          child: Stack(
+                            children: [
+                              Container(
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(12),
                                   ),
-                                ],
+                                  child: Image.asset(
+                                    athletes[index].image,
+                                    height: 130,
+                                    width: 123,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
-                            );
-                          },
-                        ),
-                      ),
-                    ],
+                              Positioned(
+                                bottom: 40,
+                                left: 75,
+                                child: Container(
+                                  height: 20,
+                                  width: 35,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(athletes[index].flage),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                bottom: 2,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(athletes[index].name,
+                                            style: txtAthName),
+                                        SizedBox(height: 5),
+                                        Text(athletes[index].sports,
+                                            style: textSpName),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),

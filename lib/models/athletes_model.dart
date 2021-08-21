@@ -4,6 +4,7 @@ class AthletesModel {
   final sports;
   final medals;
   final image;
+  final flage;
 
   AthletesModel(
     this.name,
@@ -11,6 +12,7 @@ class AthletesModel {
     this.sports,
     this.medals,
     this.image,
+    this.flage,
   );
 }
 
@@ -22,6 +24,7 @@ List<AthletesModel> athletes = athleteList
         item['sports'],
         item['medals'],
         item['image'],
+        item['flage'],
       ),
     )
     .toList();
@@ -33,6 +36,7 @@ final athleteList = const [
     'sports': 'Cycling',
     'medals': 'Gold',
     'image': 'assets/images/yang-qian.jpeg',
+    'flage': 'assets/images/chinaflag.png',
   },
   {
     'name': 'Emma McKeon',
@@ -40,6 +44,7 @@ final athleteList = const [
     'sports': 'Swimming',
     'medals': {'Gold', 'Bronze'},
     'image': 'assets/images/Emma-McKeon.jpeg',
+    'flage': 'assets/images/australiflag.png',
   },
   {
     'name': 'Andre De Grasse',
@@ -47,12 +52,6 @@ final athleteList = const [
     'sports': 'Swimming',
     'medals': 'Gold',
     'image': 'assets/images/Andre-De-Grasse.jpeg',
-  },
-  {
-    'name': 'Andre De Grasse',
-    'country': 'Canada',
-    'sports': 'Swimming',
-    'medals': 'Gold',
-    'image': 'assets/images/Andre-De-Grasse.jpeg',
+    'flage': 'assets/images/canada.png',
   },
 ];
